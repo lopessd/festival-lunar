@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Mudando cores para identidade visual do Festival da Lua - verde e amarelo */
+  --forest-green: #0f3d2c;
+  --nature-green: #1a5f3f;
+  --light-green: #4ade80;
+  --moon-yellow: #fbbf24;
+  --bright-yellow: #f59e0b;
+  --cream-white: #fefce8;
+  --dark-green: #0a2e1f;
+  --sage: #86efac;
+  --golden: #fde047;
+  --forest: #166534;
+  --charcoal: #374151;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--cream-white);
+    color: var(--dark-green);
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    background-color: var(--nature-green);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--forest-green);
+  }
+
+  .btn-secondary {
+    background-color: var(--moon-yellow);
+    color: var(--dark-green);
+    border: 1px solid var(--bright-yellow);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bright-yellow);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-light mb-8 text-center tracking-wide;
+    color: var(--dark-green);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Corrigindo gradiente do festival para usar cores mais escuras */
+  .festival-gradient {
+    background: linear-gradient(135deg, #166534 0%, #0f3d2c 50%, #0a2e1f 100%);
+  }
+
+  .moon-glow {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-content {
+    color: var(--forest-green);
+  }
+
+  .text-yellow {
+    color: var(--moon-yellow);
+  }
+
+  .text-bright-yellow {
+    color: var(--bright-yellow);
+  }
+}
