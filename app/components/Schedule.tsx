@@ -109,15 +109,31 @@ export default function Schedule() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative"
         >
           <h2 className="section-title text-white">Programação</h2>
-          <p className="text-white text-lg max-w-2xl mx-auto opacity-90">
+          <p className="text-white text-lg max-w-2xl mx-auto opacity-90 mb-6">
             Confira a programação completa dos dois dias de festival, com horários e locais de cada atração.
           </p>
+          
+          {/* Elementos decorativos */}
+          <div className="absolute left-0 top-0 hidden lg:block opacity-30">
+            <img
+              src="/arvore_flores.png"
+              alt="Decoração natureza"
+              className="w-16 h-16 xl:w-20 xl:h-20 object-contain"
+            />
+          </div>
+          <div className="absolute right-0 bottom-0 hidden lg:block opacity-30">
+            <img
+              src="/coelho.png"
+              alt="Decoração natureza"
+              className="w-12 h-12 xl:w-16 xl:h-16 object-contain"
+            />
+          </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {Object.entries(scheduleData).map(([date, events], dayIndex) => (
             <motion.div
               key={date}
@@ -125,16 +141,18 @@ export default function Schedule() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: dayIndex * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 shadow-xl"
+              className="bg-white rounded-2xl p-4 sm:p-6 shadow-xl"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Calendar className="w-6 h-6 text-[var(--nature-green)]" />
-                <h3 className="text-2xl font-bold text-[var(--dark-green)]">
-                  {dayIndex === 0 ? "Sexta-feira" : "Sábado"} - {date}
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--nature-green)]" />
+                <h3 className="text-lg sm:text-2xl font-bold text-[var(--dark-green)]">
+                  <span className="hidden sm:inline">{dayIndex === 0 ? "Sexta-feira" : "Sábado"} - </span>
+                  <span className="sm:hidden">{dayIndex === 0 ? "Sex" : "Sáb"} </span>
+                  {date}
                 </h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {events.map((event, index) => (
                   <motion.div
                     key={index}
@@ -142,27 +160,27 @@ export default function Schedule() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                    className="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
                   >
                     <div className="flex-shrink-0">
-                      <div className="flex items-center gap-1 text-[var(--nature-green)] font-semibold mb-1">
-                        <Clock className="w-4 h-4" />
+                      <div className="flex items-center gap-1 text-[var(--nature-green)] font-semibold mb-1 text-sm sm:text-base">
+                        <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                         {event.time}
                       </div>
                       <span
-                        className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${typeColors[event.type as keyof typeof typeColors]}`}
+                        className={`inline-block px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs font-medium ${typeColors[event.type as keyof typeof typeColors]}`}
                       >
                         {event.type}
                       </span>
                     </div>
 
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-[var(--dark-green)] mb-1">{event.event}</h4>
-                      <div className="flex items-center gap-1 text-[var(--forest-green)] text-sm mb-2">
-                        <MapPin className="w-3 h-3" />
-                        {event.location}
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-[var(--dark-green)] mb-1 text-sm sm:text-base">{event.event}</h4>
+                      <div className="flex items-center gap-1 text-[var(--forest-green)] text-xs sm:text-sm mb-1 sm:mb-2">
+                        <MapPin className="w-3 h-3 flex-shrink-0" />
+                        <span className="truncate">{event.location}</span>
                       </div>
-                      <p className="text-content text-sm">{event.description}</p>
+                      <p className="text-content text-xs sm:text-sm leading-relaxed">{event.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -176,11 +194,11 @@ export default function Schedule() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-8 sm:mt-12 text-center"
         >
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-[var(--moon-yellow)] mb-3">Informações Importantes</h3>
-            <p className="text-white opacity-90">
+          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 max-w-2xl mx-auto">
+            <h3 className="text-lg sm:text-xl font-semibold text-[var(--moon-yellow)] mb-2 sm:mb-3">Informações Importantes</h3>
+            <p className="text-white opacity-90 text-sm sm:text-base">
               Todas as atividades são gratuitas. Recomendamos chegar com antecedência para garantir seu lugar. O
               festival acontece com chuva ou sol!
             </p>

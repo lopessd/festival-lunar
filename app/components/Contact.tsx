@@ -36,8 +36,19 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-white">
-      <div className="container">
+    <section id="contact" className="section-padding bg-white relative overflow-hidden">
+      {/* Elementos decorativos da seção */}
+      <div className="absolute top-10 left-8 opacity-15">
+        <img src="/arvore_flores.png" alt="" className="w-16 h-16 decorative-float" />
+      </div>
+      <div className="absolute bottom-16 right-12 opacity-20">
+        <img src="/coelho.png" alt="" className="w-12 h-12 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}} />
+      </div>
+      <div className="absolute top-1/2 left-4 opacity-10">
+        <img src="/lua.png" alt="" className="w-10 h-10 decorative-soft-pulse" />
+      </div>
+      
+      <div className="container relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,8 +89,19 @@ export default function Contact() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className={`flex flex-col items-center p-6 rounded-lg bg-[var(--cream)] transition-all duration-300 ${social.color} hover:shadow-lg group`}
+                className={`flex flex-col items-center p-6 rounded-lg bg-[var(--cream)] transition-all duration-300 ${social.color} hover:shadow-lg group relative`}
               >
+                {/* Elementos decorativos sutis nos botões sociais */}
+                {index === 0 && (
+                  <div className="absolute -top-1 -right-1 opacity-15">
+                    <img src="/coelho.png" alt="" className="w-4 h-4 animate-pulse" />
+                  </div>
+                )}
+                {index === 2 && (
+                  <div className="absolute -bottom-1 -left-1 opacity-20">
+                    <img src="/arvore_flores.png" alt="" className="w-4 h-4 decorative-soft-pulse" />
+                  </div>
+                )}
                 <social.icon className="w-8 h-8 mb-3 text-[var(--forest)] group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-sm font-medium text-[var(--charcoal)]">{social.name}</span>
               </motion.a>
@@ -90,7 +112,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-gradient-to-r from-green-600 to-green-800 rounded-lg p-8 text-white"
+            className="bg-gradient-to-r from-green-600 to-green-800 rounded-2xl p-8 text-white"
           >
             <h4 className="text-xl font-semibold mb-4 text-white">Fique por dentro de tudo!</h4>
             <p className="text-green-50 mb-6">

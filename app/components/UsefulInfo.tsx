@@ -81,8 +81,29 @@ export default function UsefulInfo() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative"
             >
+              {/* Elementos decorativos específicos para cada card */}
+              {index === 0 && (
+                <div className="absolute -top-2 -right-2 opacity-20 z-10">
+                  <img src="/lua.png" alt="" className="w-8 h-8 animate-pulse" style={{animationDuration: '3s'}} />
+                </div>
+              )}
+              {index === 1 && (
+                <div className="absolute -bottom-1 -left-1 opacity-15 z-10">
+                  <img src="/coelho.png" alt="" className="w-7 h-7 animate-bounce" style={{animationDuration: '2.5s'}} />
+                </div>
+              )}
+              {index === 2 && (
+                <div className="absolute -top-1 -left-1 opacity-20 z-10">
+                  <img src="/arvore_flores.png" alt="" className="w-8 h-8 decorative-soft-pulse" />
+                </div>
+              )}
+              {index === 3 && (
+                <div className="absolute -bottom-2 -right-2 opacity-15 z-10">
+                  <img src="/coelho.png" alt="" className="w-6 h-6 decorative-float" />
+                </div>
+              )}
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-[var(--nature-green)] rounded-full flex items-center justify-center">
                   <section.icon className="w-6 h-6 text-white" />

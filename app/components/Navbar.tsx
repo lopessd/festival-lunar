@@ -35,15 +35,20 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-2xl font-bold text-[var(--nature-green)] hover:text-[var(--moon-yellow)] transition-colors duration-300 flex items-center gap-2"
+              className="text-lg sm:text-2xl font-bold text-orange hover:text-green-light transition-colors duration-300 flex items-center gap-1 sm:gap-2"
             >
-              <span className="text-3xl">🌙</span>
-              Festival da Lua
+              <img 
+                src="/lua.png" 
+                alt="Festival da Lua" 
+                className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+              />
+              <span className="hidden xs:inline">Festival da Lua</span>
+              <span className="xs:hidden">Festival</span>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -52,7 +57,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-[var(--dark-green)] hover:text-[var(--moon-yellow)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+                  className="text-green-light hover:text-orange px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault()
                     const targetId = item.href.slice(1)
@@ -72,9 +77,9 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[var(--dark-green)] hover:text-[var(--moon-yellow)] hover:bg-[var(--light-green)] hover:bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--nature-green)]"
+              className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-md text-green-light hover:text-orange hover:bg-green-light hover:bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange"
             >
-              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+              {isOpen ? <X className="block h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="block h-5 w-5 sm:h-6 sm:w-6" />}
             </button>
           </div>
         </div>
@@ -85,14 +90,14 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-md"
+          className="md:hidden bg-[var(--festival-green-dark)] shadow-md border-t border-green-light border-opacity-20"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-3 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-[var(--dark-green)] hover:text-[var(--moon-yellow)] block px-3 py-2 rounded-md text-base font-medium"
+                className="text-green-light hover:text-orange block px-3 py-2 rounded-md text-sm font-medium"
                 onClick={(e) => {
                   e.preventDefault()
                   setIsOpen(false)

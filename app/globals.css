@@ -3,18 +3,30 @@
 @tailwind utilities;
 
 :root {
-  /* Mudando cores para identidade visual do Festival da Lua - verde e amarelo */
-  --forest-green: #0f3d2c;
-  --nature-green: #1a5f3f;
-  --light-green: #4ade80;
-  --moon-yellow: #fbbf24;
-  --bright-yellow: #f59e0b;
-  --cream-white: #fefce8;
-  --dark-green: #0a2e1f;
-  --sage: #86efac;
-  --golden: #fde047;
-  --forest: #166534;
-  --charcoal: #374151;
+  /* Nova paleta de cores Festival da Lua 2025 baseada no manual da marca */
+  --festival-orange: #ff9600;
+  --festival-green-light: #75d5af;
+  --festival-green-dark: #002117;
+  
+  /* Cores complementares para contraste e acessibilidade */
+  --white: #ffffff;
+  --black: #000000;
+  --gray-light: #f8f9fa;
+  --gray-medium: #6c757d;
+  --gray-dark: #343a40;
+  
+  /* Mantendo algumas variáveis para compatibilidade (serão ajustadas) */
+  --forest-green: #002117;
+  --nature-green: #75d5af;
+  --light-green: #75d5af;
+  --moon-yellow: #ff9600;
+  --bright-yellow: #ff9600;
+  --cream-white: #002117;
+  --dark-green: #002117;
+  --sage: #75d5af;
+  --golden: #ff9600;
+  --forest: #002117;
+  --charcoal: #002117;
 }
 
 @layer base {
@@ -23,69 +35,107 @@
   }
 
   body {
-    background-color: var(--cream-white);
-    color: var(--dark-green);
+    background-color: var(--festival-green-dark);
+    color: var(--white);
     font-family: "Inter", sans-serif;
+  }
+  
+  /* Animações suaves para elementos decorativos */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-1deg); }
+  }
+  
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.05); }
+  }
+  
+  .decorative-float {
+    animation: gentle-float 6s ease-in-out infinite;
+  }
+  
+  .decorative-soft-pulse {
+    animation: soft-pulse 4s ease-in-out infinite;
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-4 xs:px-6 py-2.5 xs:py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 
   .btn-primary {
-    background-color: var(--nature-green);
-    color: white;
+    background-color: var(--festival-orange);
+    color: var(--white);
+    border: 2px solid var(--festival-orange);
   }
 
   .btn-primary:hover {
-    background-color: var(--forest-green);
+    background-color: transparent;
+    color: var(--festival-orange);
+    border: 2px solid var(--festival-orange);
   }
 
   .btn-secondary {
-    background-color: var(--moon-yellow);
-    color: var(--dark-green);
-    border: 1px solid var(--bright-yellow);
+    background-color: var(--festival-green-light);
+    color: var(--festival-green-dark);
+    border: 2px solid var(--festival-green-light);
   }
 
   .btn-secondary:hover {
-    background-color: var(--bright-yellow);
+    background-color: transparent;
+    color: var(--festival-green-light);
+    border: 2px solid var(--festival-green-light);
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-light mb-8 text-center tracking-wide;
-    color: var(--dark-green);
+    @apply text-2xl xs:text-3xl md:text-4xl font-light mb-6 sm:mb-8 text-center tracking-wide;
+    color: var(--festival-orange);
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-24;
   }
 
-  /* Corrigindo gradiente do festival para usar cores mais escuras */
+  /* Gradiente atualizado para nova paleta de cores */
   .festival-gradient {
-    background: linear-gradient(135deg, #166534 0%, #0f3d2c 50%, #0a2e1f 100%);
+    background: linear-gradient(135deg, var(--festival-green-dark) 0%, #001a12 50%, #000d08 100%);
   }
 
   .moon-glow {
-    box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 0 30px rgba(255, 150, 0, 0.3);
   }
 }
 
 @layer utilities {
   .text-content {
-    color: var(--forest-green);
+    color: var(--festival-green-light);
   }
 
   .text-yellow {
-    color: var(--moon-yellow);
+    color: var(--festival-orange);
   }
 
   .text-bright-yellow {
-    color: var(--bright-yellow);
+    color: var(--festival-orange);
+  }
+
+  .text-orange {
+    color: var(--festival-orange);
+  }
+
+  .text-green-light {
+    color: var(--festival-green-light);
+  }
+
+  .text-green-dark {
+    color: var(--festival-green-dark);
   }
 }

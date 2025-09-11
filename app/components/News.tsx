@@ -82,8 +82,16 @@ export default function News() {
             .map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 relative"
               >
+                {/* Elemento decorativo para notícia em destaque */}
+                <div className="absolute -top-2 -right-2 opacity-20 z-10">
+                  <img 
+                    src="/arvore_flores.png" 
+                    alt="" 
+                    className="w-10 h-10 decorative-soft-pulse"
+                  />
+                </div>
                 <div className="md:flex">
                   <div className="md:w-1/2">
                     <img
@@ -133,8 +141,28 @@ export default function News() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group relative"
                 >
+                  {/* Elementos decorativos alternados */}
+                  {index % 2 === 0 ? (
+                    <div className="absolute -bottom-1 -left-1 opacity-15 z-10">
+                      <img 
+                        src="/coelho.png" 
+                        alt="" 
+                        className="w-6 h-6 animate-bounce" 
+                        style={{animationDuration: '3s', animationDelay: `${index * 0.5}s`}}
+                      />
+                    </div>
+                  ) : (
+                    <div className="absolute -top-1 -right-1 opacity-15 z-10">
+                      <img 
+                        src="/arvore_flores.png" 
+                        alt="" 
+                        className="w-7 h-7 decorative-soft-pulse"
+                        style={{animationDelay: `${index * 0.3}s`}}
+                      />
+                    </div>
+                  )}
                   <div className="relative overflow-hidden">
                     <img
                       src={item.image || "/placeholder.svg"}
