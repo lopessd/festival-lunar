@@ -5,7 +5,8 @@
       "Bash(taskkill:*)",
       "Bash(cmd //c:*)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(dir \"C:\\Users\\davin\\Projetos\\festival-lunar\\public\" /b)"
     ],
     "deny": [],
     "ask": []
