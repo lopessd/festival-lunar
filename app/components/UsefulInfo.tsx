@@ -8,11 +8,12 @@ const infoSections = [
     title: "Local do Evento",
     icon: MapPin,
     content: [
-      "Centro de Convivência (recém-reformado)",
-      "Rua das Palmeiras, 123 - Centro",
+      "Centro de Convivência Cultural de Campinas 'Carlos Gomes'",
+      "R. Gen. Osório - Cambuí, Campinas - SP, 13025-066",
       "Capacidade para 5.000 pessoas",
       "Espaços cobertos e ao ar livre",
     ],
+    hasMap: true,
   },
   {
     title: "Como Chegar",
@@ -114,7 +115,18 @@ export default function UsefulInfo() {
                 {section.content.map((item, itemIndex) => (
                   <li key={itemIndex} className="text-content flex items-start gap-2">
                     <span className="w-2 h-2 bg-[var(--moon-yellow)] rounded-full mt-2 flex-shrink-0"></span>
-                    {item}
+                    {section.hasMap && itemIndex === 1 ? (
+                      <a
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                      >
+                        {item}
+                      </a>
+                    ) : (
+                      item
+                    )}
                   </li>
                 ))}
               </ul>
@@ -136,11 +148,16 @@ export default function UsefulInfo() {
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--light-green)] to-[var(--nature-green)] opacity-20"></div>
               <div className="text-center z-10">
                 <MapPin className="w-16 h-16 text-[var(--nature-green)] mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-[var(--dark-green)] mb-2">Centro de Convivência</h4>
-                <p className="text-content">Rua das Palmeiras, 123 - Centro</p>
-                <button className="mt-4 px-6 py-2 bg-[var(--nature-green)] text-white rounded-full hover:bg-[var(--forest-green)] transition-colors">
+                <h4 className="text-xl font-semibold text-[var(--dark-green)] mb-2">Centro de Convivência Cultural de Campinas "Carlos Gomes"</h4>
+                <p className="text-content">R. Gen. Osório - Cambuí, Campinas - SP, 13025-066</p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Centro+de+Conviv%C3%AAncia+Cultural+de+Campinas+Carlos+Gomes+R.+Gen.+Os%C3%B3rio+Cambu%C3%AD+Campinas+SP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 px-6 py-2 bg-[var(--nature-green)] text-white rounded-full hover:bg-[var(--forest-green)] transition-colors inline-block"
+                >
                   Abrir no Google Maps
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -8,7 +8,10 @@ import { motion } from "framer-motion"
 const navItems = [
   { name: "Início", href: "#home" },
   { name: "Sobre", href: "#about" },
+  { name: "Atrações", href: "#attractions" },
   { name: "Programação", href: "#schedule" },
+  { name: "Oficinas", href: "#workshops" },
+  { name: "Exposições", href: "#exhibitions" },
   { name: "Informações", href: "#info" },
   { name: "Contato", href: "#contact" },
 ]
