@@ -5,25 +5,15 @@ import { motion } from "framer-motion"
 export default function Contact() {
   return (
     <section id="contact" className="section-padding bg-white relative overflow-hidden">
-      {/* Elementos decorativos da seção */}
-      <div className="absolute top-10 left-8 opacity-15">
-        <img src="/arvore_flores.png" alt="" className="w-16 h-16 decorative-float" />
-      </div>
-      <div className="absolute bottom-16 right-12 opacity-20">
-        <img src="/coelho.png" alt="" className="w-12 h-12 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}} />
-      </div>
-      <div className="absolute top-1/2 left-4 opacity-10">
-        <img src="/lua.png" alt="" className="w-10 h-10 decorative-soft-pulse" />
-      </div>
-
       <div className="container relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="section-title"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
         >
-          Nossos Parceiros
+          <span className="font-normal">NOSSOS </span>
+          <span className="font-bold">PARCEIROS</span>
         </motion.h2>
 
         <div className="max-w-6xl mx-auto">

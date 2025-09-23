@@ -67,7 +67,15 @@ export default function UsefulInfo() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Informações Úteis</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal">INFORMAÇÕES </span>
+            <span className="font-bold">ÚTEIS</span>
+          </motion.h2>
           <p className="text-content text-lg max-w-2xl mx-auto">
             Tudo que você precisa saber para aproveitar ao máximo o Festival da Lua 2025.
           </p>
@@ -84,27 +92,7 @@ export default function UsefulInfo() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative"
             >
-              {/* Elementos decorativos específicos para cada card */}
-              {index === 0 && (
-                <div className="absolute -top-2 -right-2 opacity-20 z-10">
-                  <img src="/lua.png" alt="" className="w-8 h-8 animate-pulse" style={{animationDuration: '3s'}} />
-                </div>
-              )}
-              {index === 1 && (
-                <div className="absolute -bottom-1 -left-1 opacity-15 z-10">
-                  <img src="/coelho.png" alt="" className="w-7 h-7 animate-bounce" style={{animationDuration: '2.5s'}} />
-                </div>
-              )}
-              {index === 2 && (
-                <div className="absolute -top-1 -left-1 opacity-20 z-10">
-                  <img src="/arvore_flores.png" alt="" className="w-8 h-8 decorative-soft-pulse" />
-                </div>
-              )}
-              {index === 3 && (
-                <div className="absolute -bottom-2 -right-2 opacity-15 z-10">
-                  <img src="/coelho.png" alt="" className="w-6 h-6 decorative-float" />
-                </div>
-              )}
+
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-[var(--nature-green)] rounded-full flex items-center justify-center">
                   <section.icon className="w-6 h-6 text-white" />
@@ -143,20 +131,43 @@ export default function UsefulInfo() {
           className="mb-16"
         >
           <h3 className="text-2xl font-semibold text-[var(--dark-green)] mb-6 text-center">Localização</h3>
+          
+          {/* Título do local - apenas mobile */}
+          <h4 className="block sm:hidden text-lg font-semibold text-[var(--dark-green)] mb-4 text-center">Centro de Convivência Cultural de Campinas "Carlos Gomes"</h4>
+          
           <div className="bg-white rounded-2xl p-6 shadow-lg">
-            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--light-green)] to-[var(--nature-green)] opacity-20"></div>
-              <div className="text-center z-10">
-                <MapPin className="w-16 h-16 text-[var(--nature-green)] mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-[var(--dark-green)] mb-2">Centro de Convivência Cultural de Campinas "Carlos Gomes"</h4>
-                <p className="text-content">R. Gen. Osório - Cambuí, Campinas - SP, 13025-066</p>
+            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <iframe
+                src="https://maps.google.com/maps?q=R.+Gen.+Os%C3%B3rio+-+Cambu%C3%AD,+Campinas+-+SP,+13025-066&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-xl"
+              ></iframe>
+            </div>
+            <div className="text-center">
+              {/* Título do local - desktop */}
+              <h4 className="hidden sm:block text-xl font-semibold text-[var(--dark-green)] mb-2">Centro de Convivência Cultural de Campinas "Carlos Gomes"</h4>
+              <p className="text-content text-sm sm:text-base mb-3 sm:mb-4">R. Gen. Osório - Cambuí, Campinas - SP, 13025-066</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Centro+de+Conviv%C3%AAncia+Cultural+de+Campinas+Carlos+Gomes+R.+Gen.+Os%C3%B3rio+Cambu%C3%AD+Campinas+SP"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 px-6 py-2 bg-[var(--nature-green)] text-white rounded-full hover:bg-[var(--forest-green)] transition-colors inline-block"
+                  className="px-6 py-2 bg-[var(--nature-green)] text-white rounded-full hover:bg-[var(--forest-green)] transition-colors text-center"
                 >
                   Abrir no Google Maps
+                </a>
+                <a
+                  href="https://waze.com/ul?q=Centro+de+Conviv%C3%AAncia+Cultural+de+Campinas+Carlos+Gomes+R.+Gen.+Os%C3%B3rio+Cambu%C3%AD+Campinas+SP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors text-center"
+                >
+                  Abrir no Waze
                 </a>
               </div>
             </div>

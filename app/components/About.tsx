@@ -6,47 +6,37 @@ export default function About() {
   const milestones = ["4ª edição consecutiva", "Tema sustentabilidade ambiental", "Centro de Convivência reformado"]
 
   return (
-    <section id="about" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">
-      {/* Elementos decorativos */}
-      <div className="absolute top-10 right-10 opacity-10">
-        <img src="/coelho.png" alt="" className="w-24 h-24 animate-bounce" style={{animationDuration: '4s'}} />
-      </div>
-      <div className="absolute bottom-20 left-10 opacity-15">
-        <img src="/arvore_flores.png" alt="" className="w-20 h-20 animate-pulse" style={{animationDuration: '3s', animationDelay: '2s'}} />
-      </div>
-      
+    <section id="about" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">      
       <div className="container relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="section-title"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
         >
-          Sobre o Festival da Lua
+          <span className="font-normal">SOBRE O </span>
+          <span className="font-bold">FESTIVAL DA LUA</span>
         </motion.h2>
         <div className="flex flex-wrap items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full md:w-1/2 mb-8 md:mb-0 relative"
+            className="w-full md:w-1/2 mb-4 md:mb-0 relative"
           >
-            <div className="relative bg-gradient-to-br from-green-light/20 to-orange/10 rounded-lg p-6 sm:p-8">
+            <div className="relative bg-gradient-to-br from-green-light/20 to-orange/10 rounded-lg p-4 sm:p-6">
               <img
-                src="/arvore_flores.png"
-                alt="Árvore com flores - Sustentabilidade Ambiental"
-                className="w-full h-auto max-w-md mx-auto drop-shadow-lg"
+                src="/imagem_sustenbtabilidade.png"
+                alt="Sustentabilidade Ambiental - Festival da Lua 2025"
+                className="w-full h-auto mx-auto drop-shadow-lg scale-105"
               />
-              <div className="absolute top-4 right-4 bg-orange/90 text-white px-3 py-1 rounded-full text-sm font-medium">
-                🌱 Sustentável
-              </div>
             </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full md:w-1/2 md:pl-8 lg:pl-10"
+            className="w-full md:w-1/2 md:pl-4 lg:pl-6"
           >
             <p className="text-content text-sm sm:text-lg mb-6">
               O Festival da Lua celebra a tradição milenar chinesa do Festival do Meio do Outono, unindo cultura, música

@@ -103,15 +103,7 @@ export default function Attractions() {
   })
 
   return (
-    <section id="attractions" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">
-      {/* Elementos decorativos */}
-      <div className="absolute top-20 left-4 opacity-10">
-        <img src="/arvore_flores.png" alt="" className="w-16 h-16 animate-pulse" style={{animationDuration: '4s', animationDelay: '1s'}} />
-      </div>
-      <div className="absolute bottom-32 right-8 opacity-15">
-        <img src="/coelho.png" alt="" className="w-14 h-14 animate-bounce" style={{animationDuration: '3.5s'}} />
-      </div>
-      
+    <section id="attractions" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">      
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -120,22 +112,20 @@ export default function Attractions() {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <h2 className="section-title">Atrações 2025</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal">ATRAÇÕES </span>
+            <span className="font-bold">2025</span>
+          </motion.h2>
           <p className="text-content text-lg max-w-2xl mx-auto mb-6">
             Descubra os artistas e atividades que farão parte desta edição especial do Festival da Lua, celebrando a
             sustentabilidade através da arte e música.
           </p>
-          
-          {/* Coelho decorativo */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute right-0 top-0 hidden lg:block opacity-80">
-              <img
-                src="/coelho.png"
-                alt="Coelho da natureza"
-                className="w-24 h-24 xl:w-32 xl:h-32 object-contain transform hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          </div>
+
         </motion.div>
 
         {/* Filtros */}
@@ -186,17 +176,7 @@ export default function Attractions() {
                   viewport={{ once: true }}
                   className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group relative"
                 >
-                  {/* Elemento decorativo no card */}
-                  {index === 0 && (
-                    <div className="absolute -top-2 -right-2 opacity-20 z-10">
-                      <img src="/arvore_flores.png" alt="" className="w-8 h-8 animate-pulse" />
-                    </div>
-                  )}
-                  {index === 1 && (
-                    <div className="absolute -bottom-1 -left-1 opacity-25 z-10">
-                      <img src="/coelho.png" alt="" className="w-6 h-6 animate-bounce" style={{animationDuration: '2s'}} />
-                    </div>
-                  )}
+
                   {/* Ícone decorativo */}
                   <div className="absolute top-4 right-4 opacity-10">
                     {attraction.type.includes('Dança') && (

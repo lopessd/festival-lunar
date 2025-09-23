@@ -63,7 +63,15 @@ export default function News() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Notícias & Atualizações</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal">NOTÍCIAS & </span>
+            <span className="font-bold">ATUALIZAÇÕES</span>
+          </motion.h2>
           <p className="text-content text-lg max-w-2xl mx-auto">
             Fique por dentro das últimas novidades sobre o Festival da Lua 2025 e nossos parceiros.
           </p>
@@ -84,14 +92,7 @@ export default function News() {
                 key={item.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 relative"
               >
-                {/* Elemento decorativo para notícia em destaque */}
-                <div className="absolute -top-2 -right-2 opacity-20 z-10">
-                  <img 
-                    src="/arvore_flores.png" 
-                    alt="" 
-                    className="w-10 h-10 decorative-soft-pulse"
-                  />
-                </div>
+
                 <div className="md:flex">
                   <div className="md:w-1/2">
                     <img
@@ -143,26 +144,7 @@ export default function News() {
                   viewport={{ once: true }}
                   className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group relative"
                 >
-                  {/* Elementos decorativos alternados */}
-                  {index % 2 === 0 ? (
-                    <div className="absolute -bottom-1 -left-1 opacity-15 z-10">
-                      <img 
-                        src="/coelho.png" 
-                        alt="" 
-                        className="w-6 h-6 animate-bounce" 
-                        style={{animationDuration: '3s', animationDelay: `${index * 0.5}s`}}
-                      />
-                    </div>
-                  ) : (
-                    <div className="absolute -top-1 -right-1 opacity-15 z-10">
-                      <img 
-                        src="/arvore_flores.png" 
-                        alt="" 
-                        className="w-7 h-7 decorative-soft-pulse"
-                        style={{animationDelay: `${index * 0.3}s`}}
-                      />
-                    </div>
-                  )}
+
                   <div className="relative overflow-hidden">
                     <img
                       src={item.image || "/placeholder.svg"}

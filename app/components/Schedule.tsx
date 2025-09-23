@@ -188,26 +188,19 @@ export default function Schedule() {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <h2 className="section-title text-white">Programação</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal"></span>
+            <span className="font-bold">PROGRAMAÇÃO</span>
+          </motion.h2>
           <p className="text-white text-lg max-w-2xl mx-auto opacity-90 mb-6">
             Confira a programação completa dos dois dias de festival, com horários e locais de cada atração.
           </p>
-          
-          {/* Elementos decorativos */}
-          <div className="absolute left-0 top-0 hidden lg:block opacity-30">
-            <img
-              src="/arvore_flores.png"
-              alt="Decoração natureza"
-              className="w-16 h-16 xl:w-20 xl:h-20 object-contain"
-            />
-          </div>
-          <div className="absolute right-0 bottom-0 hidden lg:block opacity-30">
-            <img
-              src="/coelho.png"
-              alt="Decoração natureza"
-              className="w-12 h-12 xl:w-16 xl:h-16 object-contain"
-            />
-          </div>
+
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">

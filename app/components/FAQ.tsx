@@ -33,9 +33,10 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="section-title"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
         >
-          Frequently Asked Questions
+          <span className="font-normal">FREQUENTLY ASKED </span>
+          <span className="font-bold">QUESTIONS</span>
         </motion.h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (

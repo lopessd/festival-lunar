@@ -76,9 +76,10 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="section-title"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
         >
-          What Our Clients Say
+          <span className="font-normal">WHAT OUR CLIENTS </span>
+          <span className="font-bold">SAY</span>
         </motion.h2>
         <div className="relative max-w-4xl mx-auto">
           <div className="overflow-hidden">

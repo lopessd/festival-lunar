@@ -121,14 +121,6 @@ export default function Workshops() {
       id="workshops"
       className="section-padding bg-gradient-to-br from-[var(--festival-green-dark)] to-[var(--nature-green)] relative overflow-hidden"
     >
-      {/* Elementos decorativos */}
-      <div className="absolute top-32 right-4 opacity-10">
-        <img src="/arvore_flores.png" alt="" className="w-20 h-20 animate-pulse" style={{animationDuration: '4s'}} />
-      </div>
-      <div className="absolute bottom-20 left-8 opacity-15">
-        <img src="/coelho.png" alt="" className="w-16 h-16 animate-bounce" style={{animationDuration: '3s', animationDelay: '1s'}} />
-      </div>
-
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -137,7 +129,15 @@ export default function Workshops() {
           viewport={{ once: true }}
           className="text-center mb-16 relative"
         >
-          <h2 className="section-title text-white">Oficinas Culturais</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal">OFICINAS </span>
+            <span className="font-bold">CULTURAIS</span>
+          </motion.h2>
           <p className="text-white text-lg max-w-2xl mx-auto opacity-90 mb-6">
             Participe de oficinas práticas e imersivas que conectam você com a rica tradição cultural chinesa. 
             Todas as atividades são gratuitas e incluem materiais.
@@ -195,12 +195,7 @@ export default function Workshops() {
                   viewport={{ once: true }}
                   className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group relative"
                 >
-                  {/* Elemento decorativo no card */}
-                  {index === 1 && (
-                    <div className="absolute -top-2 -right-2 opacity-20 z-10">
-                      <img src="/lua.png" alt="" className="w-8 h-8 animate-pulse" />
-                    </div>
-                  )}
+
                   
                   <div className="p-4 sm:p-6">
                     <div className="flex items-center justify-between mb-3">

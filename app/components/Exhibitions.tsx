@@ -91,14 +91,6 @@ export default function Exhibitions() {
       id="exhibitions"
       className="section-padding bg-gradient-to-br from-[var(--light-green)] to-[var(--nature-green)] relative overflow-hidden"
     >
-      {/* Elementos decorativos */}
-      <div className="absolute top-16 left-4 opacity-15">
-        <img src="/lua.png" alt="" className="w-16 h-16 animate-pulse" style={{animationDuration: '5s'}} />
-      </div>
-      <div className="absolute bottom-20 right-8 opacity-20">
-        <img src="/arvore_flores.png" alt="" className="w-18 h-18 animate-pulse" style={{animationDuration: '4s', animationDelay: '2s'}} />
-      </div>
-
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -107,7 +99,15 @@ export default function Exhibitions() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-[var(--dark-green)]">Exposições e Ativações</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--moon-yellow)] text-center mb-8 tracking-wide"
+          >
+            <span className="font-normal">EXPOSIÇÕES E </span>
+            <span className="font-bold">ATIVAÇÕES</span>
+          </motion.h2>
           <p className="text-[var(--forest-green)] text-lg max-w-3xl mx-auto mb-6">
             Explore exposições interativas, espaços culturais e ativações especiais que complementam 
             a experiência do Festival da Lua com arte, tecnologia e consciência social.
