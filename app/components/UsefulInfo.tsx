@@ -58,6 +58,7 @@ const rules = [
 
 export default function UsefulInfo() {
   return (
+    false ? (
     <section id="info" className="section-padding bg-[var(--cream-white)]">
       <div className="container">
         <motion.div
@@ -220,15 +221,16 @@ export default function UsefulInfo() {
             </div>
             <div className="space-y-2 text-content">
               <p>
-                <strong>27/09 (Sexta):</strong> 14h às 23h
+                <strong>27/09 (Sábado):</strong> 14h às 23h
               </p>
               <p>
-                <strong>28/09 (Sábado):</strong> 14h às 22h
+                <strong>28/09 (Domingo):</strong> 14h às 22h
               </p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
+    ) : null
   )
 }

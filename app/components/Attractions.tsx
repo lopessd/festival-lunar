@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Music, Mic, Star, Users, Heart, Sparkles, Globe, Palette } from "lucide-react"
-import { useState } from "react"
 
 const attractions = [
   {
@@ -87,20 +86,7 @@ const attractions = [
   },
 ]
 
-const filters = [
-  { name: "Todas", value: "all" },
-  { name: "Palco Principal", value: "Palco Principal" },
-  { name: "Saguão", value: "Saguão" },
-  { name: "Infantil", value: "Espaço Infantil" },
-]
-
 export default function Attractions() {
-  const [activeFilter, setActiveFilter] = useState("all")
-
-  const filteredAttractions = attractions.filter(attraction => {
-    if (activeFilter === "all") return true
-    return attraction.palco === activeFilter
-  })
 
   return (
     <section id="attractions" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">      
@@ -122,37 +108,14 @@ export default function Attractions() {
             <span className="font-bold">2025</span>
           </motion.h2>
           <p className="text-content text-lg max-w-2xl mx-auto mb-6">
-            Descubra os artistas e atividades que farão parte desta edição especial do Festival da Lua, celebrando a
+            Descubra os artistas e as atividades que farão parte desta edição especial do Festival da Lua, celebrando a
             sustentabilidade através da arte e música.
           </p>
 
         </motion.div>
 
-        {/* Filtros */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12"
-        >
-          {filters.map((filter) => (
-            <button
-              key={filter.value}
-              onClick={() => setActiveFilter(filter.value)}
-              className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border-2 text-sm sm:text-base transition-all duration-300 ${
-                activeFilter === filter.value
-                  ? "bg-orange text-white border-orange"
-                  : "border-green-light text-green-light hover:bg-green-light hover:text-green-dark"
-              }`}
-            >
-              {filter.name}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Atrações Principais */}
-        {filteredAttractions.filter((attraction) => attraction.featured).length > 0 && (
+        {attractions.filter((attraction) => attraction.featured).length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +128,7 @@ export default function Attractions() {
               Atrações Principais
             </h3>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {filteredAttractions
+              {attractions
                 .filter((attraction) => attraction.featured)
                 .map((attraction, index) => (
                 <motion.div
@@ -179,51 +142,51 @@ export default function Attractions() {
 
                   {/* Ícone decorativo */}
                   <div className="absolute top-4 right-4 opacity-10">
-                    {attraction.type.includes('Dança') && (
+                    {attraction.type && attraction.type.includes('Dança') && (
                       <Users className="w-12 h-12 text-orange" />
                     )}
-                    {attraction.type.includes('Música') && (
+                    {attraction.type && attraction.type.includes('Música') && (
                       <Music className="w-12 h-12 text-green-light" />
                     )}
-                    {attraction.type.includes('Arte') && (
+                    {attraction.type && attraction.type.includes('Arte') && (
                       <Palette className="w-12 h-12 text-orange" />
                     )}
-                    {attraction.type.includes('Cultural') && (
+                    {attraction.type && attraction.type.includes('Cultural') && (
                       <Globe className="w-12 h-12 text-green-light" />
                     )}
-                    {!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural') && (
+                    {(!attraction.type || (!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural'))) && (
                       <Sparkles className="w-12 h-12 text-orange" />
                     )}
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-green-100 rounded-xl">
-                        {attraction.type.includes('Dança') && (
+                        {attraction.type && attraction.type.includes('Dança') && (
                           <Users className="w-6 h-6 text-green-600" />
                         )}
-                        {attraction.type.includes('Música') && (
+                        {attraction.type && attraction.type.includes('Música') && (
                           <Music className="w-6 h-6 text-green-600" />
                         )}
-                        {attraction.type.includes('Arte') && (
+                        {attraction.type && attraction.type.includes('Arte') && (
                           <Palette className="w-6 h-6 text-green-600" />
                         )}
-                        {attraction.type.includes('Cultural') && (
+                        {attraction.type && attraction.type.includes('Cultural') && (
                           <Globe className="w-6 h-6 text-green-600" />
                         )}
-                        {!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural') && (
+                        {(!attraction.type || (!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural'))) && (
                           <Sparkles className="w-6 h-6 text-green-600" />
                         )}
                       </div>
                       <div>
                         <span className="text-sm font-medium text-green-600">{attraction.type}</span>
-                        <h4 className="text-xl font-semibold text-gray-800">{attraction.name}</h4>
+                        <h4 className="text-xl font-semibold text-gray-800">{attraction.name || 'Nome não disponível'}</h4>
                       </div>
                     </div>
 
-                    <p className="text-content mb-4 leading-relaxed">{attraction.description}</p>
+                    <p className="text-content mb-4 leading-relaxed">{attraction.description || 'Descrição não disponível'}</p>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-green-600">{attraction.palco}</span>
+                      <span className="text-sm font-medium text-green-600">{attraction.palco || 'Local não definido'}</span>
                     </div>
 
                     {attraction.organization && (
@@ -247,7 +210,7 @@ export default function Attractions() {
         >
           <h3 className="text-lg sm:text-2xl font-semibold text-orange mb-6 sm:mb-8 text-center">Outras Atrações</h3>
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {filteredAttractions
+            {attractions
               .filter((attraction) => !attraction.featured)
               .map((attraction, index) => (
                 <motion.div
@@ -261,32 +224,32 @@ export default function Attractions() {
                   <div className="p-5">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 bg-green-100 rounded-xl">
-                        {attraction.type.includes('Dança') && (
+                        {attraction.type && attraction.type.includes('Dança') && (
                           <Users className="w-5 h-5 text-green-600" />
                         )}
-                        {attraction.type.includes('Música') && (
+                        {attraction.type && attraction.type.includes('Música') && (
                           <Music className="w-5 h-5 text-green-600" />
                         )}
-                        {attraction.type.includes('Arte') && (
+                        {attraction.type && attraction.type.includes('Arte') && (
                           <Palette className="w-5 h-5 text-green-600" />
                         )}
-                        {attraction.type.includes('Cultural') && (
+                        {attraction.type && attraction.type.includes('Cultural') && (
                           <Globe className="w-5 h-5 text-green-600" />
                         )}
-                        {!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural') && (
+                        {(!attraction.type || (!attraction.type.includes('Dança') && !attraction.type.includes('Música') && !attraction.type.includes('Arte') && !attraction.type.includes('Cultural'))) && (
                           <Sparkles className="w-5 h-5 text-green-600" />
                         )}
                       </div>
                       <div>
                         <span className="text-xs font-medium text-green-600">{attraction.type}</span>
-                        <h4 className="font-semibold text-gray-800">{attraction.name}</h4>
+                        <h4 className="font-semibold text-gray-800">{attraction.name || 'Nome não disponível'}</h4>
                       </div>
                     </div>
 
-                    <p className="text-sm text-content mb-3 leading-relaxed">{attraction.description}</p>
+                    <p className="text-sm text-content mb-3 leading-relaxed">{attraction.description || 'Descrição não disponível'}</p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-medium text-green-600">{attraction.palco}</span>
+                      <span className="font-medium text-green-600">{attraction.palco || 'Local não definido'}</span>
                     </div>
 
                     {attraction.organization && (

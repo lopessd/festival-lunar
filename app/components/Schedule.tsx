@@ -216,9 +216,8 @@ export default function Schedule() {
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--nature-green)]" />
                 <h3 className="text-lg sm:text-2xl font-bold text-[var(--dark-green)]">
-                  <span className="hidden sm:inline">{dayIndex === 0 ? "Sexta-feira" : "Sábado"} - </span>
-                  <span className="sm:hidden">{dayIndex === 0 ? "Sex" : "Sáb"} </span>
-                  {date}
+                  <span className="hidden sm:inline">{date} - {date === "27/09" ? "Sábado" : "Domingo"}</span>
+                  <span className="sm:hidden">{date} ({date === "27/09" ? "Sáb" : "Dom"})</span>
                 </h3>
               </div>
 
@@ -250,7 +249,7 @@ export default function Schedule() {
                         <MapPin className="w-3 h-3 flex-shrink-0" />
                         <span className="truncate">{event.location}</span>
                       </div>
-                      <p className="text-content text-xs sm:text-sm leading-relaxed">{event.description}</p>
+                      <p className="text-green-700 text-xs sm:text-sm leading-relaxed">{event.description}</p>
                     </div>
                   </motion.div>
                 ))}

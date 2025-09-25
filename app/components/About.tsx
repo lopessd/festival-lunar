@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 
 export default function About() {
-  const milestones = ["4ª edição consecutiva", "Tema sustentabilidade ambiental", "Centro de Convivência reformado"]
 
   return (
     <section id="about" className="section-padding bg-[var(--festival-green-dark)] relative overflow-hidden">      
@@ -38,56 +37,45 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="w-full md:w-1/2 md:pl-4 lg:pl-6"
           >
-            <p className="text-content text-sm sm:text-lg mb-6">
-              O Festival da Lua celebra a tradição milenar chinesa do Festival do Meio do Outono, unindo cultura, música
-              e consciência ambiental. Em sua quarta edição, o evento acontece pela primeira vez no recém-reformado
-              Centro de Convivência, trazendo como tema central a Sustentabilidade Ambiental em conexão com a COP30.
-            </p>
+            <div className="text-content text-sm sm:text-lg mb-6">
+              <p className="mb-4">
+                O Festival da Lua, que também é conhecido como Festival de Meio do Outono, é uma
+                celebração popular na Ásia para comemorar a abundância na agricultura e a união da
+                família. A data festiva é comemorada há mais de 3.000 anos.
+              </p>
 
-            <div className="mb-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-orange mb-4">Edições Anteriores</h3>
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-light rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                  <span className="text-content text-sm sm:text-base">2022 - 1ª Edição: Tradições Ancestrais</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-light rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                  <span className="text-content text-sm sm:text-base">2023 - 2ª Edição: Harmonia Cultural</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-light rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                  <span className="text-content text-sm sm:text-base">2024 - 3ª Edição: Conexões Globais</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-orange rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                  <span className="text-content font-semibold text-sm sm:text-base">2025 - 4ª Edição: Sustentabilidade Ambiental</span>
-                </div>
-              </div>
+              <p className="mb-4">
+                O Festival da Lua acontece no 15º dia do 8º mês lunar do calendário chinês, que
+                coincide com o equinócio de outono do calendário solar. Esse é o momento ideal,
+                quando a lua está cheia e em seu maior esplendor, para agradecer a colheita do inverno
+                e pedir por fartura no verão. É daí que vem o nome de Festival de Meio de Outono, uma
+                relação com a cultura agrícola do país.
+              </p>
+
+              <p className="mb-6">
+                Atualmente a data é um feriado nacional onde os chineses passam o dia com a família,
+                fazem uma refeição juntos, pedem por boa sorte e trocam bolinhos da lua como
+                presentes.
+              </p>
+
+              <p className="mb-4">
+                中秋节
+              </p>
+
+              <p className="mb-4">
+                中秋节，又称"月亮节"，在亚洲是一种庆祝农业丰收与家庭团圆的传统节日。这个节日已有三
+                千多年的历史。
+              </p>
+
+              <p className="mb-4">
+                中秋节在农历八月十五日举行，这一天恰逢公历秋分前后。此时正值满月、月色最美，人们借此
+                感谢秋收，并祈求来年丰收，因此得名"中秋节"。
+              </p>
+
+              <p>
+                如今，中秋节是中国的法定节日。人们与家人团聚，共进晚餐，祈福纳祥，并以月饼作为馈赠。
+              </p>
             </div>
-
-            <ul className="mb-6">
-              {milestones.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-center mb-2 text-content"
-                >
-                  <svg
-                    className="w-4 h-4 sm:w-6 sm:h-6 mr-2 text-orange flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm sm:text-base">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
           </motion.div>
         </div>
       </div>
